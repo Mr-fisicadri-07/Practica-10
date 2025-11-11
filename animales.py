@@ -1,14 +1,11 @@
 class Animal:
-    """Clase base que almacena el nombre y el sonido."""
+    
     def __init__(self, nombre, sonido):
         self.nombre = nombre
         self.sonido = sonido
 
 class Animales_Domesticos(Animal): # (Nota: Quité la tilde, es mejor evitar acentos en nombres de clases)
-    """
-    Clase intermedia. DEBE aceptar los argumentos de sus hijos
-    y pasarlos a su padre (Animal).
-    """
+    
     def __init__(self, nombre, sonido):
         # 1. Recibe 'nombre' y 'sonido' (de Perro)
         # 2. Los pasa hacia "arriba" (a Animal)
@@ -19,10 +16,11 @@ class Animales_Domesticos(Animal): # (Nota: Quité la tilde, es mejor evitar ace
 
 class Perro(Animales_Domesticos):
     
-    def __init__(self):
+    def __init__(self, nombre, caracteristica="hacer pis"):
         # Pasa los valores "Perro" y "guau guau"
         # a su clase padre (Animales_Domesticos)
-        super().__init__("Soy un perro", "Quería decir, guau guau")
+        super().__init__(nombre, "Quería decir, guau guau")
+        self.caracteristica = caracteristica
 
 class Gato(Animales_Domesticos):
     
@@ -34,10 +32,11 @@ class Gato(Animales_Domesticos):
 
 class Hamster(Animales_Domesticos):
     
-    def __init__(self):
+    def __init__(self, nombre, caracteristica="roer"):
         # Pasa los valores "Perro" y "guau guau"
         # a su clase padre (Animales_Domesticos)
-        super().__init__("Soy un hamster", "quería decir *roe algo*")
+        super().__init__(nombre, "quería decir *roe algo*")
+        self.caracteristica = caracteristica
 
 class Periquito(Animales_Domesticos):
     
@@ -51,4 +50,4 @@ class Perro(Animales_Domesticos):
     def __init__(self):
         # Pasa los valores "Perro" y "guau guau"
         # a su clase padre (Animales_Domesticos)
-        super().__init__("Perro"    , "guau guau")
+        super().__init__("Perro", "guau guau")
