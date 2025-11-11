@@ -16,11 +16,12 @@ class Animales_Domesticos(Animal): # (Nota: Quité la tilde, es mejor evitar ace
 
 class Perro(Animales_Domesticos):
     
-    def __init__(self, nombre, caracteristica="hacer pis"):
+    def __init__(self, nombre, caracteristica="hacer pis", ubicacion="casa"):
         # Pasa los valores "Perro" y "guau guau"
         # a su clase padre (Animales_Domesticos)
         super().__init__(nombre, "Quería decir, guau guau")
         self.caracteristica = caracteristica
+        self.ubicacion = ubicacion
 
 class Gato(Animales_Domesticos):
     
