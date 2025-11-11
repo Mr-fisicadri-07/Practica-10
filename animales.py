@@ -22,6 +22,33 @@ class Perro(Animales_Domesticos):
     def __init__(self):
         # Pasa los valores "Perro" y "guau guau"
         # a su clase padre (Animales_Domesticos)
+        super().__init__("Soy un perro", "Quería decir, guau guau")
+
+class Gato(Animales_Domesticos):
+    
+    def __init__(self):
+        # Pasa los valores "Perro" y "guau guau"
+        # a su clase padre (Animales_Domesticos)
+        super().__init__("erro", "guau guau")
+
+
+class Hamster(Animales_Domesticos):
+    
+    def __init__(self):
+        # Pasa los valores "Perro" y "guau guau"
+        # a su clase padre (Animales_Domesticos)
         super().__init__("Perro", "guau guau")
 
-class 
+class Periquito(Animales_Domesticos):
+    
+    def __init__(self):
+        # Pasa los valores "Perro" y "guau guau"
+        # a su clase padre (Animales_Domesticos)
+        super().__init__("Perro", "guau guau")
+
+class Perro(Animales_Domesticos):
+    
+    def __init__(self):
+        # Pasa los valores "Perro" y "guau guau"
+        # a su clase padre (Animales_Domesticos)
+        super().__init__("Perro", "guau guau")
