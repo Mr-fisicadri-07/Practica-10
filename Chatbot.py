@@ -1,16 +1,21 @@
+import random
+from animales_Jorge import (Vaca, Cerdo, Oveja, Gallo, Cabra)
+from animales_andrea import (Delfin, Tiburon, Pulpo, Medusa, PezPayaso, CaballitoDeMar, EstrellaDeMar)
+from animales_adrian import (Perro, Gato, Hamster, Periquito, Nemo)
+from animale_marco import (Leon, mono, lobo, elefante, hiena)
 # --- 4. CREAR LA "POBLACIÓN" DE ANIMALES ---
 # Creamos instancias de cada animal para que el juego pueda elegirlas.
 # Usamos el tipo de animal como su nombre para que el juego funcione.
 
 poblacion_total = [
     # Domésticos
-    Perro("Perro"), Gato("Gato"), Hamster("Hamster"), Periquito("Periquito"), PezDomestico("Pez Doméstico"),
+    Perro("Perro"), Gato("Gato"), Hamster("Hamster"), Periquito("Periquito"), Nemo("Pez Doméstico"),
     # Granja
     Vaca("Vaca"), Cerdo("Cerdo"), Oveja("Oveja"), Gallo("Gallo"), Cabra("Cabra"),
     # Marinos
-    Delfin("Delfín"), Tiburon("Tiburón"), Pulpo("Pulpo"), PezPayaso("Pez Payaso"),
+    Delfin("Delfín"), Tiburon("Tiburón"), Pulpo("Pulpo"), PezPayaso("Pez Payaso"),Medusa("Medusa"), CaballitoDeMar("Caballito de Mar"), EstrellaDeMar("Estrella de Mar"),
     # Salvajes
-    Leon("León"), Mono("Mono"), Lobo("Lobo"), Elefante("Elefante"), Hiena("Hiena")
+    Leon("Leon"), mono("Mono"), lobo("Lobo"), elefante("Elefante"), hiena("Hiena")
 ]
 
 
