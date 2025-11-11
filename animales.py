@@ -4,74 +4,80 @@ class Animal:
         self.nombre = nombre
         self.sonido = sonido
 
-class Animales_Domesticos(Animal): # (Nota: Quité la tilde, es mejor evitar acentos en nombres de clases)
+class Animales_Domesticos(Animal): 
     
     def __init__(self, nombre, sonido):
-        # 1. Recibe 'nombre' y 'sonido' (de Perro)
-        # 2. Los pasa hacia "arriba" (a Animal)
+    
         super().__init__(nombre, sonido)
         
-        # Opcional: Aquí puedes añadir lógica solo para domésticos
-        # self.es_domestico = True 
 
 class Perro(Animales_Domesticos):
     
     def __init__(self, nombre, caracteristica="hacer pis", ubicacion="casa"):
-        # Pasa los valores "Perro" y "guau guau"
-        # a su clase padre (Animales_Domesticos)
+    
         super().__init__(nombre, "Quería decir, guau guau")
         self.caracteristica = caracteristica
         self.ubicacion = ubicacion
 
 class Gato(Animales_Domesticos):
     
-    def __init__(self):
+    def __init__(self, nombre, caracteristica="arañar", ubicacion="casa"):
         # Pasa los valores "Perro" y "guau guau"
         # a su clase padre (Animales_Domesticos)
-        super().__init__("Soy un gato", "Perdón, miau miau")
+        super().__init__(nombre, "Perdón, miau miau")
+        self.caracteristica = caracteristica
+        self.ubicacion = ubicacion
 
 
 class Hamster(Animales_Domesticos):
     
-    def __init__(self, nombre, caracteristica="roer"):
+    def __init__(self, nombre, caracteristica="roer", ubicacion="casa"):
         # Pasa los valores "Perro" y "guau guau"
         # a su clase padre (Animales_Domesticos)
         super().__init__(nombre, "quería decir *roe algo*")
         self.caracteristica = caracteristica
+        self.ubicacion = ubicacion
 
 class Periquito(Animales_Domesticos):
     
-    def __init__(self):
+    def __init__(self, nombre, caracteristica="dar picotazos", ubicacion="casa"):
         # Pasa los valores "Perro" y "guau guau"
         # a su clase padre (Animales_Domesticos)
-        super().__init__("Soy un periquito", "perdón, pío pío")
+        super().__init__(nombre, "perdón, pío pío")
+        self.caracteristica = caracteristica
+        self.ubicacion = ubicacion
 
-class Perro(Animales_Domesticos):
+class Nemo(Animales_Domesticos):
     
-    def __init__(self):
+    def __init__(self, nombre, caracteristica="ser un payaso", ubicacion="casa"):
         # Pasa los valores "Perro" y "guau guau"
         # a su clase padre (Animales_Domesticos)
-        super().__init__("Perro", "guau guau")
-class Animal:
-    def __init__(self, nombre, sonido):
-        self.nombre = nombre
-        self.sonido = sonido
+        super().__init__(nombre, "quería decir, glugluglu")
+        self.caracteristica = caracteristica
+        self.ubicacion = ubicacion
+
+
 class animales_granja(Animal):
     def __init__(self, nombre, sonido):
         super().__init__(nombre, sonido)
+
 class Vaca(animales_granja):
     def __init__(self, nombre):
         super().__init__(nombre, "Muu")
+
 class Cerdo(animales_granja):
     def __init__(self, nombre):
         super().__init__(nombre, "Oink")
+
 class Oveja(animales_granja):
     def __init__(self, nombre):
         super().__init__(nombre, "Bee")
+
 class Gallo(animales_granja):
     def __init__(self, nombre):
         super().__init__(nombre, "kikiriki")
-class  cabra(animales_granja):
+
+class Cabra(animales_granja):
     def __init__(self, nombre):
         super().__init__(nombre, "Baaaaaaa")
 
