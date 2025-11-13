@@ -1,6 +1,6 @@
 import random
 # Asumo que estos imports funcionan y los archivos existen
-from animales_Jorge import Vaca, Cerdo, Oveja, Gallo, Cabra
+from animales_jorge import Vaca, Cerdo, Oveja, Gallo, Cabra
 from animales_andrea import Delfin, Tiburon, Pulpo, Medusa, PezGlobo, CaballitoDeMar, EstrellaDeMar
 from animales_adrian import Perro, Gato, Hamster, Periquito, Nemo
 from animales_marco import Leon, Mono, Lobo, Elefante, Hiena
