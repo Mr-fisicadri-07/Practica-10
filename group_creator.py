@@ -1,6 +1,9 @@
 import random
 
-person = ["David", "Sergio", "Jorge", "Santiago", "Héctor", "Diego", "Marco", "Ginebra", "Izaro", "Nerea", "Rojo", "Adrián"]
+person = [
+    "David", "Sergio", "Jorge", "Santiago", "Héctor", "Diego", "Marco",
+    "Ginebra", "Izaro", "Nerea", "Andrea", "Rojo", "Román", "Adrián"
+    ]
 
 # --- Hacemos una copia de la lista original ---
 # Esto es importante para no "gastar" la lista original.
@@ -40,7 +43,7 @@ try:
         # Cuando el bucle termina, imprimimos los que sobraron.
         print("--- Process finished ---")
         if remaining_people:
-            print(f"\nLeftovers (not enough for a group of {x}): {remaining_people}")
+            print(f"\nYet to be assigned: {remaining_people}")
         else:
             print("\nEveryone was assigned to a group!")
 

@@ -1,6 +1,6 @@
 import random
-# Asumo que estos imports funcionan y los archivos existen
-from animales_Jorge import Vaca, Cerdo, Oveja, Gallo, Cabra
+
+from animales_jorge import Vaca, Cerdo, Oveja, Gallo, Cabra
 from animales_andrea import Delfin, Tiburon, Pulpo, Medusa, PezGlobo, CaballitoDeMar, EstrellaDeMar
 from animales_adrian import Perro, Gato, Hamster, Periquito, Nemo
 from animales_marco import Leon, Mono, Lobo, Elefante, Hiena
@@ -17,7 +17,7 @@ poblacion_total = [
     Leon("León"), Mono("Mono"), Lobo("Lobo"), Elefante("Elefante"), Hiena("Hiena")
 ]
 
-# --- 2. INICIALIZAR EL LIBRO (FUERA DEL BUCLE) ---
+# --- 2. INICIALIZAR EL LIBRO ---
 mi_libro_de_animales = [] 
 print("¡Bienvenido al juego de coleccionar animales!")
 
@@ -28,30 +28,34 @@ while True:
     if len(poblacion_total) < 3:
         print("\n¡Felicidades! Has coleccionado tantos animales que no podemos seguir jugando.")
         print("Juego terminado.")
-        break # Sale del bucle 'while'
+        break 
 
     print("\n" + "=" * 30)
-    print("  JUEGO: ¿QUÉ ANIMAL HACE ESTE SONIDO?  ")
+    print("   JUEGO: ADIVINA EL ANIMAL   ")
     print("=" * 30)
 
-    # 1. Elegir 3 animales únicos de los que quedan
+    # 1. Elegir 3 animales únicos
     opciones = random.sample(poblacion_total, 3)
 
-    # 2. De esos 3, elegimos 1 para que sea la respuesta correcta
+    # 2. Elegir 1 respuesta correcta
     animal_correcto = random.choice(opciones)
 
-    # 3. Guardamos el nombre (especie) y el sonido
+    # 3. Guardamos datos
     nombre_correcto = animal_correcto.nombre
     sonido_pregunta = animal_correcto.sonido
+    
+    # 4. Obtenemos la característica del animal
+    pista_caracteristica = animal_correcto.caracteristica 
 
-    # 4. Presentamos la pregunta
-    print(f"Un animal dice: ¡{sonido_pregunta}!")
+    # 5. Presentamos la pregunta con las pistas
+    print(f"Un animal hace este sonido: '¡{sonido_pregunta}!'")
+    print(f"Pista extra: Es conocido por {pista_caracteristica}.")
     print("\n¿Cuál de estos animales crees que es?\n")
 
-    # 5. Barajamos las opciones
+    # 6. Barajamos las opciones
     random.shuffle(opciones)
 
-    # 6. Mostramos las opciones (A, B, C)
+    # 7. Mostramos las opciones (A, B, C)
     mapa_de_opciones = {}
     letras = ['A', 'B', 'C']
 
@@ -59,40 +63,39 @@ while True:
         letra = letras[i]
         nombre_animal_opcion = opciones[i].nombre
         
-        print(f"   {letra}) {nombre_animal_opcion}")
+        print(f"   {letra}) {nombre_animal_opcion}")
         mapa_de_opciones[letra] = nombre_animal_opcion
 
-    # 7. Pedimos la respuesta al usuario
+    # 8. Pedimos la respuesta
     print("-" * 30)
     respuesta_usuario = input("Elige A, B, o C: ").upper()
 
-    # 8. Comprobamos la respuesta
+    # 9. Comprobamos la respuesta
     if respuesta_usuario in mapa_de_opciones:
         nombre_elegido = mapa_de_opciones[respuesta_usuario]
         
         if nombre_elegido == nombre_correcto:
-            print(f"\n¡CORRECTO! 🥳  Era un {nombre_correcto}.")
+            print(f"\n¡CORRECTO! 🥳  Era un {nombre_correcto}.")
             
-            # --- ¡AQUÍ ESTÁ LA NUEVA LÓGICA! ---
-            
-            # 8a. Pedimos un nombre personalizado
+            # 9a. Pedimos nombre personalizado
             nuevo_nombre = input(f"¿Qué nombre quieres ponerle a tu {nombre_correcto}? ")
             
-            # 8b. Añadimos ese nombre como un nuevo atributo al objeto
+            # 9b. Añadimos atributo personalizado
             animal_correcto.nombre_personalizado = nuevo_nombre
             
-            # 8c. Añadimos el animal a nuestro libro
+            # 9c. Añadimos al libro
             mi_libro_de_animales.append(animal_correcto)
             
-            # 8d. Lo quitamos de la población para no volver a encontrarlo
+            # 9d. Lo quitamos de la población
             poblacion_total.remove(animal_correcto)
             
             print(f"¡{nuevo_nombre} (un/a {nombre_correcto}) se ha añadido a tu libro!")
-            # --- FIN DE LA NUEVA LÓGICA ---
 
         else:
             print(f"\nINCORRECTO. 😕 El animal que eligió ({nombre_elegido}) no era.")
             print(f"La respuesta correcta era {nombre_correcto}.")
+            ### NUEVO: Explicamos por qué (mostrando la característica) ###
+            print(f"Recuerda: El {nombre_correcto} es el que suele {pista_caracteristica}.")
     else:
         print("\n¡Opción no válida! Debes elegir A, B o C.")
 
@@ -102,9 +105,11 @@ while True:
     if not mi_libro_de_animales:
         print("(Aún está vacío)")
     else:
-        # Mostramos los animales con su nuevo nombre
+        # Mostramos los animales con su nuevo nombre y su característica
         for animal in mi_libro_de_animales:
-            print(f"  - {animal.nombre_personalizado} (Especie: {animal.nombre})")
+            # Añadimos la característica al reporte del libro
+            print(f"  - {animal.nombre_personalizado} ({animal.nombre}) -> Le gusta {animal.caracteristica}")
+            
     print("-" * 30)
     print(f"({len(poblacion_total)} animales restantes por descubrir)")
 
@@ -112,4 +117,4 @@ while True:
     jugar_de_nuevo = input("¿Jugar otra ronda? (s/n): ").lower()
     if jugar_de_nuevo != 's':
         print("\n¡Gracias por jugar! ¡Vuelve pronto!")
-        break # Sale del bucle 'while'
+        break
